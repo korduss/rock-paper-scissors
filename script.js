@@ -1,4 +1,4 @@
-const playerSelection = (prompt("Rock, Paper or Scissors?")).toLowerCase();
+
 
 const types = ["rock", "paper", "scissors"]
 function getComputerChoice(){
@@ -6,8 +6,8 @@ function getComputerChoice(){
 }
 
 function singleRound(playerSelection, computerSelection){
-    console.log(computerSelection);
-    console.log(playerSelection);
+    console.log("Computer choice:" + computerSelection);
+    console.log("Player choice:" + playerSelection);
     if(playerSelection == "rock" && computerSelection == "scissors"){
         return "Great Job! Rock beat scissors";
     }else if(playerSelection == "paper" && computerSelection == "rock"){
@@ -24,4 +24,35 @@ function singleRound(playerSelection, computerSelection){
         return "Tie!!";
     }
 }
-console.log(singleRound(playerSelection, getComputerChoice()))
+function game(){
+    let computerPoints = 0;
+    let playerPoints = 0;
+    for(let i=0; i<5; i++){
+        let playerSelection = (prompt("Rock, Paper or Scissors?")).toLowerCase();
+
+        let round = singleRound(playerSelection, getComputerChoice());
+        if(round.charAt(0) == "G"){
+            playerPoints++;
+            console.log("Player is win in this round");
+            console.log(`Player score: ${playerPoints}`);
+            console.log(`Computer Score: ${computerPoints}`);
+        }else if(round.charAt(0) == "Y"){
+            computerPoints++;
+            console.log("Computer is win in this round");
+            console.log(`Player score: ${playerPoints}`);
+            console.log(`Computer Score: ${computerPoints}`);
+        }else{
+            console.log("Tie!!!");
+            console.log(`Player score: ${playerPoints}`);
+            console.log(`Computer Score: ${computerPoints}`);
+        }
+    }
+    if(playerPoints > computerPoints){
+        console.log(`Player win ${playerPoints} to ${computerPoints}`);
+    }else if (computerPoints > playerPoints){
+        console.log(`Computer win ${computerPoints} to ${playerPoints}`);
+    }else{
+        console.log(`Tie!! (${playerPoints} - ${computerPoints})`);
+    }
+}
+game();
