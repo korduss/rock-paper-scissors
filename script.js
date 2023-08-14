@@ -59,12 +59,15 @@ const btnRock = document.querySelector("#rock");
 const btnPaper = document.querySelector("#paper");
 const btnScissors = document.querySelector("#scissors");
 btnRock.addEventListener('click', ()=>{
-    alert("dziala");
+    const playerType = "rock";
+    console.log(singleRound(playerType, getComputerChoice()));
 });
 btnPaper.addEventListener('click', ()=>{
-    alert("dziala");
+    const playerType = "paper";
+    console.log(singleRound(playerType, getComputerChoice()));
 });
 btnScissors.addEventListener('click', ()=>{
-    alert("dziala");
+    const playerType = "scissors";
+    console.log(singleRound(playerType, getComputerChoice()));
 });
-game();
+//game();
