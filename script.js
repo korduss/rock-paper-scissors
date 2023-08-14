@@ -11,26 +11,41 @@ function singleRound(playerSelection, computerSelection){
     const p1 = document.createElement('p');
     const p2 = document.createElement('p');
     const result = document.createElement('p');
-    p1.textContent=`Computer choice: ${computerSelection}`;
-    p2.textContent=`Player choice: ${playerSelection}`;
-    results.appendChild(p1);
-    results.appendChild(p2);
+    //p1.textContent=`Computer choice: ${computerSelection}, score: ${computerScore}`;
+    //p2.textContent=`Player choice: ${playerSelection}, score: ${playerScore}`;
+    //results.appendChild(p1);
+    //results.appendChild(p2);
     if(playerSelection == "rock" && computerSelection == "scissors"){
         result.textContent = "Great Job! Rock beat scissors";
+        playerScore ++;
     }else if(playerSelection == "paper" && computerSelection == "rock"){
         result.textContent = "Great Job! Paper beat rock";
+        playerScore ++;
     }else if(playerSelection == "scissors" && computerSelection == "paper"){
         result.textContent = "Great Job! Scissors beat paper";
+        playerScore ++;
     }else if(playerSelection == "rock" && computerSelection == "paper"){
         result.textContent = "You Lose! Paper beat rock";
+        computerScore++;
     }else if(playerSelection == "paper" && computerSelection == "scissors"){
         result.textContent = "You Lose! Scissors beat paper";
+        computerScore++;
     }else if(playerSelection == "scissors" && computerSelection == "rock"){
         result.textContent = "You Lose! Rock beat scissors";
+        computerScore++;
     }else{
         result.textContent = "Tie!!";
     }
+    p1.textContent=`Computer choice: ${computerSelection}, score: ${computerScore}`;
+    p2.textContent=`Player score: ${playerScore}`;
+    results.appendChild(p1);
+    results.appendChild(p2);
     results.appendChild(result);
+    if(playerScore == 5){
+        results.textContent = "Player Win!!!";
+    }else if(computerScore == 5){
+        results.textContent = "Computer Win!!";
+    }
     
 }
 function game(){
