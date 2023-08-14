@@ -55,5 +55,16 @@ function game(){
         console.log(`Tie!! (${playerPoints} - ${computerPoints})`);
     }
 }
-
+const btnRock = document.querySelector("#rock");
+const btnPaper = document.querySelector("#paper");
+const btnScissors = document.querySelector("#scissors");
+btnRock.addEventListener('click', ()=>{
+    alert("dziala");
+});
+btnPaper.addEventListener('click', ()=>{
+    alert("dziala");
+});
+btnScissors.addEventListener('click', ()=>{
+    alert("dziala");
+});
 game();
