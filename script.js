@@ -4,25 +4,34 @@ const types = ["rock", "paper", "scissors"]
 function getComputerChoice(){
     return types[Math.floor(Math.random() * 3)];
 }
-
+const results = document.querySelector("#results");
+let playerScore = 0;
+let computerScore = 0;
 function singleRound(playerSelection, computerSelection){
-    console.log("Computer choice:" + computerSelection);
-    console.log("Player choice:" + playerSelection);
+    const p1 = document.createElement('p');
+    const p2 = document.createElement('p');
+    const result = document.createElement('p');
+    p1.textContent=`Computer choice: ${computerSelection}`;
+    p2.textContent=`Player choice: ${playerSelection}`;
+    results.appendChild(p1);
+    results.appendChild(p2);
     if(playerSelection == "rock" && computerSelection == "scissors"){
-        return "Great Job! Rock beat scissors";
+        result.textContent = "Great Job! Rock beat scissors";
     }else if(playerSelection == "paper" && computerSelection == "rock"){
-        return "Great Job! Paper beat rock";
+        result.textContent = "Great Job! Paper beat rock";
     }else if(playerSelection == "scissors" && computerSelection == "paper"){
-        return "Great Job! Scissors beat paper";
+        result.textContent = "Great Job! Scissors beat paper";
     }else if(playerSelection == "rock" && computerSelection == "paper"){
-        return "You Lose! Paper beat rock";
+        result.textContent = "You Lose! Paper beat rock";
     }else if(playerSelection == "paper" && computerSelection == "scissors"){
-        return "You Lose! Scissors beat paper";
+        result.textContent = "You Lose! Scissors beat paper";
     }else if(playerSelection == "scissors" && computerSelection == "rock"){
-        return "You Lose! Rock beat scissors";
+        result.textContent = "You Lose! Rock beat scissors";
     }else{
-        return "Tie!!";
+        result.textContent = "Tie!!";
     }
+    results.appendChild(result);
+    
 }
 function game(){
     let computerPoints = 0;
@@ -58,16 +67,19 @@ function game(){
 const btnRock = document.querySelector("#rock");
 const btnPaper = document.querySelector("#paper");
 const btnScissors = document.querySelector("#scissors");
+
 btnRock.addEventListener('click', ()=>{
     const playerType = "rock";
-    console.log(singleRound(playerType, getComputerChoice()));
+    singleRound(playerType, getComputerChoice());
 });
 btnPaper.addEventListener('click', ()=>{
     const playerType = "paper";
-    console.log(singleRound(playerType, getComputerChoice()));
+    singleRound(playerType, getComputerChoice());
+    
 });
 btnScissors.addEventListener('click', ()=>{
     const playerType = "scissors";
-    console.log(singleRound(playerType, getComputerChoice()));
+    singleRound(playerType, getComputerChoice());
+    
 });
 //game();
