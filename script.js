@@ -55,4 +55,5 @@ function game(){
         console.log(`Tie!! (${playerPoints} - ${computerPoints})`);
     }
 }
+
 game();
