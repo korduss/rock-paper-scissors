@@ -11,10 +11,7 @@ function singleRound(playerSelection, computerSelection){
     const p1 = document.createElement('p');
     const p2 = document.createElement('p');
     const result = document.createElement('p');
-    //p1.textContent=`Computer choice: ${computerSelection}, score: ${computerScore}`;
-    //p2.textContent=`Player choice: ${playerSelection}, score: ${playerScore}`;
-    //results.appendChild(p1);
-    //results.appendChild(p2);
+    
     if(playerSelection == "rock" && computerSelection == "scissors"){
         result.textContent = "Great Job! Rock beat scissors";
         playerScore ++;
@@ -48,37 +45,7 @@ function singleRound(playerSelection, computerSelection){
     }
     
 }
-function game(){
-    let computerPoints = 0;
-    let playerPoints = 0;
-    for(let i=0; i<5; i++){
-        let playerSelection = (prompt("Rock, Paper or Scissors?")).toLowerCase();
 
-        let round = singleRound(playerSelection, getComputerChoice());
-        if(round.charAt(0) == "G"){
-            playerPoints++;
-            console.log("Player is win in this round");
-            console.log(`Player score: ${playerPoints}`);
-            console.log(`Computer Score: ${computerPoints}`);
-        }else if(round.charAt(0) == "Y"){
-            computerPoints++;
-            console.log("Computer is win in this round");
-            console.log(`Player score: ${playerPoints}`);
-            console.log(`Computer Score: ${computerPoints}`);
-        }else{
-            console.log("Tie!!!");
-            console.log(`Player score: ${playerPoints}`);
-            console.log(`Computer Score: ${computerPoints}`);
-        }
-    }
-    if(playerPoints > computerPoints){
-        console.log(`Player win ${playerPoints} to ${computerPoints}`);
-    }else if (computerPoints > playerPoints){
-        console.log(`Computer win ${computerPoints} to ${playerPoints}`);
-    }else{
-        console.log(`Tie!! (${playerPoints} - ${computerPoints})`);
-    }
-}
 const btnRock = document.querySelector("#rock");
 const btnPaper = document.querySelector("#paper");
 const btnScissors = document.querySelector("#scissors");
@@ -97,4 +64,3 @@ btnScissors.addEventListener('click', ()=>{
     singleRound(playerType, getComputerChoice());
     
 });
-//game();
